@@ -1,0 +1,551 @@
+//Task 6
+public class Playlist{
+  public String name;
+  public Song start;
+
+  public Playlist(String s){
+    name = s;
+    System.out.println(s+ " created");
+  }
+  public void info(){
+    System.out.println(name +" has the following songs: ");
+    if(start == null){
+      System.out.println("No songs in " + name);
+    }else{
+      Song temp = start;
+      int counter =1;
+      while(temp!=null){
+        System.out.println("Song - " + counter);
+        temp.songInfo();
+        temp = temp.next;
+        counter++;
+      }
+    }
+  }
+  public void addSong(Song s){
+    Song temp = this.start;
+    while(temp.next!=null){
+      temp=temp.next;
+    }
+    temp.next = s;
+    System.out.println(s.name + " added to " + this. name);
+  }
+  public void addSong(Song s, boolean b){
+    if(b==true){
+      s.next = this.start;
+      this.start=s;
+      System.out.println(s.name + " added to " + this.name);
+    }else{
+      addSong(s);
+    }
+  }
+  public void playSong(String s){
+    Song temp = start;
+    boolean found = false;
+    while(temp!=null){
+      if(temp.name == s){
+        found = true;
+        break;
+      }else{
+        temp = temp.next;
+      }
+    }if(found){
+      System.out.println("Playing " + temp.name + " by " + temp.artist);
+    }else{
+      System.out.println(s + " not found in " + this.name);
+    }
+  }
+ }
+}
+
+
+public class Song{
+  public String name;
+  public String artist;
+  public int length;
+  public Song next;
+  
+  public Song(String n, String a, int l){
+    name = n;
+    artist = a;
+    length = l;
+  }
+  public void songInfo(){
+    System.out.println("Title: " + this.name + ", " + "Artist: " + this.artist);
+    System.out.println("Length: " + this.length + " minutes");
+  }
+}
+
+
+
+//Task7
+public class Playlist{
+  public String name;
+  public Song start;
+
+  public Playlist(String s){
+    name = s;
+    System.out.println(s+ " created");
+  }
+  public void info(){
+    System.out.println(name +" has the following songs: ");
+    if(start == null){
+      System.out.println("No songs in " + name);
+    }else{
+      Song temp = start;
+      int counter =1;
+      while(temp!=null){
+        System.out.println("Song - " + counter);
+        temp.songInfo();
+        temp = temp.next;
+        counter++;
+      }
+    }
+  }
+  public void addSong(Song s){
+    Song temp = this.start;
+    while(temp.next!=null){
+      temp=temp.next;
+    }
+    temp.next = s;
+    System.out.println(s.name + " added to " + this. name);
+  }
+  public void addSong(Song s, boolean b){
+    if(b==true){
+      s.next = this.start;
+      this.start=s;
+      System.out.println(s.name + " added to " + this.name);
+    }else{
+      addSong(s);
+    }
+  }
+  public void playSong(String s){
+    Song temp = start;
+    boolean found = false;
+    while(temp!=null){
+      if(temp.name == s){
+        found = true;
+        break;
+      }else{
+        temp = temp.next;
+      }
+    }if(found){
+      System.out.println("Playing " + temp.name + " by " + temp.artist);
+    }else{
+      System.out.println(s + " not found in " + this.name);
+    }
+  }
+  public void playSong(int n){
+    int count = 0;
+    boolean found = false;
+    Song temp = start;
+    while(temp!=null){
+      if(count == n){
+        found = true;
+        break;
+      }else{
+        count++;
+        temp=temp.next;
+      }
+    }
+    if(found){
+      System.out.println("Playing " + temp.name + " by " + temp.artist);
+    }else{
+      System.out.println("Song at " + "Index " + n + " not found in " + this.name);
+    }
+  }
+}
+
+public class Song{
+  public String name;
+  public String artist;
+  public int length;
+  public Song next;
+  
+  public Song(String n, String a, int l){
+    name = n;
+    artist = a;
+    length = l;
+  }
+  public void songInfo(){
+    System.out.println("Title: " + this.name + ", " + "Artist: " + this.artist);
+    System.out.println("Length: " + this.length + " minutes");
+  }
+}
+
+
+
+//Task8
+public class Playlist{
+  public String name;
+  public Song start;
+
+  public Playlist(String s){
+    name = s;
+    System.out.println(s+ " created");
+  }
+  public void info(){
+    System.out.println(name +" has the following songs: ");
+    if(start == null){
+      System.out.println("No songs in " + name);
+    }else{
+      Song temp = start;
+      int counter =1;
+      while(temp!=null){
+        System.out.println("Song - " + counter);
+        temp.songInfo();
+        temp = temp.next;
+        counter++;
+      }
+    }
+  }
+  public void addSong(Song s){
+    Song temp = this.start;
+    while(temp.next!=null){
+      temp=temp.next;
+    }
+    temp.next = s;
+    System.out.println(s.name + " added to " + this. name);
+  }
+  public void addSong(Song s, boolean b){
+    if(b==true){
+      s.next = this.start;
+      this.start=s;
+      System.out.println(s.name + " added to " + this.name);
+    }else{
+      addSong(s);
+    }
+  }
+  public void playSong(String s){
+    Song temp = start;
+    boolean found = false;
+    while(temp!=null){
+      if(temp.name == s){
+        found = true;
+        break;
+      }else{
+        temp = temp.next;
+      }
+    }if(found){
+      System.out.println("Playing " + temp.name + " by " + temp.artist);
+    }else{
+      System.out.println(s + " not found in " + this.name);
+    }
+  }
+  public void playSong(int n){
+    int count = 0;
+    boolean found = false;
+    Song temp = start;
+    while(temp!=null){
+      if(count == n){
+        found = true;
+        break;
+      }else{
+        count++;
+        temp=temp.next;
+      }
+    }
+    if(found){
+      System.out.println("Playing " + temp.name + " by " + temp.artist);
+    }else{
+      System.out.println("Song at " + "Index " + n + " not found in " + this.name);
+    }
+  }
+  public void deleteSong(){
+    Song temp = start;
+    while(temp.next.next!=null){
+      temp=temp.next;
+    }
+    System.out.println(temp.next.name +" deleted from " + this.name);
+    temp.next = null;
+  }
+  public void deleteSong(boolean b){
+    if(b == false){
+      deleteSong();
+    }else{
+      Song temp = start.next;
+      start.next = null;
+      start = temp;
+      System.out.println("First Song Deleted!");
+    }
+  }
+}
+
+public class Song{
+  public String name;
+  public String artist;
+  public int length;
+  public Song next;
+  
+  public Song(String n, String a, int l){
+    name = n;
+    artist = a;
+    length = l;
+  }
+  public void songInfo(){
+    System.out.println("Title: " + this.name + ", " + "Artist: " + this.artist);
+    System.out.println("Length: " + this.length + " minutes");
+  }
+}
+
+
+
+//Task9
+public class Playlist{
+  public String name;
+  public Song start;
+
+  public Playlist(String s){
+    name = s;
+    System.out.println(s+ " created");
+  }
+  public void info(){
+    System.out.println(name +" has the following songs: ");
+    if(start == null){
+      System.out.println("No songs in " + name);
+    }else{
+      Song temp = start;
+      int counter =1;
+      while(temp!=null){
+        System.out.println("Song - " + counter);
+        temp.songInfo();
+        temp = temp.next;
+        counter++;
+      }
+    }
+  }
+  public void addSong(Song s){
+    Song temp = this.start;
+    while(temp.next!=null){
+      temp=temp.next;
+    }
+    temp.next = s;
+    System.out.println(s.name + " added to " + this. name);
+  }
+  public void addSong(Song s, boolean b){
+    if(b==true){
+      s.next = this.start;
+      this.start=s;
+      System.out.println(s.name + " added to " + this.name);
+    }else{
+      addSong(s);
+    }
+  }
+  public void playSong(String s){
+    Song temp = start;
+    boolean found = false;
+    while(temp!=null){
+      if(temp.name == s){
+        found = true;
+        break;
+      }else{
+        temp = temp.next;
+      }
+    }if(found){
+      System.out.println("Playing " + temp.name + " by " + temp.artist);
+    }else{
+      System.out.println(s + " not found in " + this.name);
+    }
+  }
+  public void playSong(int n){
+    int count = 0;
+    boolean found = false;
+    Song temp = start;
+    while(temp!=null){
+      if(count == n){
+        found = true;
+        break;
+      }else{
+        count++;
+        temp=temp.next;
+      }
+    }
+    if(found){
+      System.out.println("Playing " + temp.name + " by " + temp.artist);
+    }else{
+      System.out.println("Song at " + "Index " + n + " not found in " + this.name);
+    }
+  }
+  public void deleteSong(){
+    Song temp = start;
+    while(temp.next.next!=null){
+      temp=temp.next;
+    }
+    System.out.println(temp.next.name +" deleted from " + this.name);
+    temp.next = null;
+  }
+  public void deleteSong(boolean b){
+    if(b == false){
+      deleteSong();
+    }else{
+      Song temp = start.next;
+      start.next = null;
+      start = temp;
+      System.out.println("First Song Deleted!");
+    }
+  }
+  public int totalSong(){
+    Song temp = start;
+    int count = 1;
+    while(temp.next!=null){
+      count++;
+      temp=temp.next;
+    }
+    return count;
+  }
+}
+
+public class Song{
+  public String name;
+  public String artist;
+  public int length;
+  public Song next;
+  
+  public Song(String n, String a, int l){
+    name = n;
+    artist = a;
+    length = l;
+  }
+  public void songInfo(){
+    System.out.println("Title: " + this.name + ", " + "Artist: " + this.artist);
+    System.out.println("Length: " + this.length + " minutes");
+  }
+}
+
+//Task10
+public class Playlist{
+  public String name;
+  public Song start;
+
+  public Playlist(String s){
+    name = s;
+    System.out.println(s+ " created");
+  }
+  public void info(){
+    System.out.println(name +" has the following songs: ");
+    if(start == null){
+      System.out.println("No songs in " + name);
+    }else{
+      Song temp = start;
+      int counter =1;
+      while(temp!=null){
+        System.out.println("Song - " + counter);
+        temp.songInfo();
+        temp = temp.next;
+        counter++;
+      }
+    }
+  }
+  public void addSong(Song s){
+    if(start==null){
+      start=s;
+      System.out.println(s.name + " added to " + this.name);
+    }else{
+    Song temp = this.start;
+    while(temp.next!=null){
+      temp=temp.next;
+    }
+    temp.next = s;
+    System.out.println(s.name + " added to " + this. name);
+    }
+  }
+  public void addSong(Song s, boolean b){
+    if(b==true){
+      s.next = this.start;
+      this.start=s;
+      System.out.println(s.name + " added to " + this.name);
+    }else{
+      addSong(s);
+    }
+  }
+  public void playSong(String s){
+    Song temp = start;
+    boolean found = false;
+    while(temp!=null){
+      if(temp.name == s){
+        found = true;
+        break;
+      }else{
+        temp = temp.next;
+      }
+    }if(found){
+      System.out.println("Playing " + temp.name + " by " + temp.artist);
+    }else{
+      System.out.println(s + " not found in " + this.name);
+    }
+  }
+  public void playSong(int n){
+    int count = 0;
+    boolean found = false;
+    Song temp = start;
+    while(temp!=null){
+      if(count == n){
+        found = true;
+        break;
+      }else{
+        count++;
+        temp=temp.next;
+      }
+    }
+    if(found){
+      System.out.println("Playing " + temp.name + " by " + temp.artist);
+    }else{
+      System.out.println("Song at " + "Index " + n + " not found in " + this.name);
+    }
+  }
+  public void deleteSong(){
+    Song temp = start;
+    while(temp.next.next!=null){
+      temp=temp.next;
+    }
+    System.out.println(temp.next.name +" deleted from " + this.name);
+    temp.next = null;
+  }
+  public void deleteSong(boolean b){
+    if(b == false){
+      deleteSong();
+    }else{
+      Song temp = start.next;
+      start.next = null;
+      start = temp;
+      System.out.println("First Song Deleted!");
+    }
+  }
+  public int totalSong(){
+    Song temp = start;
+    int count = 1;
+    while(temp.next!=null){
+      count++;
+      temp=temp.next;
+    }
+    return count;
+  }
+  public void merge(Playlist p){
+    Song maintemp = this.start;
+    Song nontemp = p.start;
+    while(maintemp.next!=null){
+      maintemp = maintemp.next;
+    }
+    maintemp.next=nontemp;
+    System.out.println("Merge Completed!");
+  }
+}
+
+
+public class Song{
+  public String name;
+  public String artist;
+  public int length;
+  public Song next;
+  
+  public Song(String n, String a, int l){
+    name = n;
+    artist = a;
+    length = l;
+  }
+  public void songInfo(){
+    System.out.println("Title: " + this.name + ", " + "Artist: " + this.artist);
+    System.out.println("Length: " + this.length + " minutes");
+  }
+}
+

@@ -1,0 +1,17 @@
+public class Toy{
+  public int price;
+  public int name;
+  
+  public Toy(String s, int n){
+    name = s;
+    price = n;
+    System.out.println("A new toy has been made!");
+  }
+   public void updatePrice(int n){
+    price = n;
+   }
+   public void showPrice(){
+     System.out.println("price: " + price);
+   }
+}
+    

@@ -1,0 +1,18 @@
+public class Student{
+  public int name;
+  public int program;
+  
+  public Student(String n, String p){
+    name = n;
+    program = p;
+  }
+  public void updateName(String s){
+    this.name = s;
+  }
+  public void updateProgram(String s){
+    program = s;
+  }
+  public String accessProgram(){
+    return program;
+  }
+}

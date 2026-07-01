@@ -1,0 +1,174 @@
+//Task1
+public class Toy{
+  public int price;
+  public String name;
+  
+  public Toy(String s, int n){
+    name = s;
+    price = n;
+    System.out.println("A new toy has been made!");
+  }
+   public void updatePrice(int n){
+    price = n;
+   }
+   public void showPrice(){
+     System.out.println("price: " + price + " Taka");
+   }
+   public void updateName(String s){
+     System.out.println("Changing old name: " + name);
+     name = s;
+     System.out.println("new name: " + name);
+   }
+}
+
+//Task2
+public class Student{
+  public int ID;
+  public double CGPA;
+  public String [] courses = new String [4];
+  public boolean CG = false;
+  public int count;
+  
+  public Student(int i){
+    ID = i;
+    System.out.println("A student with ID " + ID + " has been created");
+  }
+  public Student(int i, double j){
+    ID = i;
+    CGPA = j;
+    CG=true;
+    System.out.println("A student with ID " + ID + " and CGPA " + CGPA + " has been created");
+  }
+  public void addCourse(String s){
+    if(CG == false){
+      System.out.println("Failed to add " +s);
+      System.out.println("Set CG First");
+    }else{
+    if(count<4){
+      if(CGPA<3.0){
+        if(count<3){
+          courses[count]=s;
+          count++;
+        }else{
+          System.out.println("CG is low. Can't add more than 3 courses");
+        }
+      }else{
+        courses[count]=s;
+        count++;
+      }
+    }else{
+      System.out.println("Failed to add " + s);
+      System.out.println("Maximum 4 courses allowed");
+  }
+    }
+  }
+  public void addCourse(String []s){
+    for(int i =0; i<s.length;i++){
+    addCourse(s[i]);
+    }
+  }
+  public void showAdvisee(){
+    System.out.println("Student ID: " + ID + ", " + "CGPA: "+ CGPA);
+    if(count>0){
+      System.out.println("Added Courses are: ");
+      for(int i =0; i<count; i++){
+        System.out.print(courses[i] + " ");
+      }
+      System.out.println();
+    }else{
+      System.out.println("No courses added");
+    }
+  }
+  public void storeCG(double i){
+    CGPA = i;
+    CG = true;
+  }
+  public void storeID(int i){
+    ID = i;
+  }
+  public void removeAllCourse(){
+    count=0;
+  }
+}
+
+//Task3
+public class Triangle{
+  public int s1;
+  public int s2;
+  public int s3;
+  public int perimeter;
+  
+  public Triangle(int n1, int n2, int n3){
+    s1=n1;
+    s2=n2;
+    s3=n3;
+    perimeter = s1+s2+s3;
+  }
+  public void triangleDetails(){
+    System.out.println("Three sides of the triangle are: " + s1 + ", " + s2 + ", " + s3);
+    System.out.println("Perimeter: " + perimeter);
+  }
+  public String printTriangleType(){
+    if(s1==s2 && s2==s3){
+      return("This is an Equilateral Triangle");
+    }else if(s1==s2 || s2==s3 || s3==s1){
+      return("This is an Isosceles Triangle");
+    }else{
+      return("This is a Scalene Triangle");
+    }
+  }
+  public void compareTriangles(Triangle t){
+    if(this == t){
+      System.out.println("These two triangle objects have the same address.");
+    }else if(this.s1==t.s1 && this.s2==t.s2 && this.s3==t.s3){
+      System.out.println("Addresses are different but the sides of the triangles are equal.");
+    }else if(this.perimeter == t.perimeter){
+      System.out.println("Only the perimeter of both triangles is equal.");
+    }else{
+      System.out.println("Addresses, length of the sides and perimeter all are different.");
+    }
+  }
+}
+
+//Task4
+public class Team{
+  public String name;
+  public Player [] players = new Player [11];
+  public int count;
+  
+  public Team(String s){
+    name = s;
+  }
+  public Team(){
+  }
+  
+  public void updateName(String s){
+    name = s;
+  }
+  public void addPlayer(Player p){
+    players[count] = p;
+    count++;
+  }
+  public void printDetail(){
+    System.out.println("Team: " + name);
+    System.out.println("List of players: ");
+    for(int i = 0;i <count; i++){
+      System.out.println("Name: " + players[i].name);
+      System.out.println("Age: " + players[i].age + ", " + "Total Matches: "+ players[i].matches);
+    }
+  }
+}
+    
+public class Player{
+  public String name;
+  public int age;
+  public int matches;
+  
+  public Player(String s, int age, int match){
+    name = s;
+    this.age = age;
+    matches = match;
+  }
+}
+  
+

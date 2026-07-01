@@ -1,0 +1,60 @@
+public class Playlist{
+  public String name;
+  public Song start;
+
+  public Playlist(String s){
+    name = s;
+    System.out.println(s+ "created");
+  }
+  public void info(){
+    System.out.println(name +" has the following songs: ");
+    if(start == null){
+      System.out.println("No songs in" + name);
+    }else{
+      Song temp = start;
+      int counter =1;
+      while(temp!=null){
+        System.out.println("Song - " + counter);
+        temp.songInfo();
+        temp = temp.next;
+        counter++;
+      }
+    }
+  }
+  public void addSong(Song s){
+    Song temp = this.start;
+    while(temp.next!=null){
+      temp=temp.next;
+    }
+    temp.next = s;
+    System.out.println(s.name + " added to " + this. name);
+  }
+  public void addSong(Song s, boolean b){
+    if(b==true){
+      s.next = this.start;
+      this.start=s;
+      System.out.println(s.name + " added to " + this.name);
+    }else{
+      addSong(s);
+    }
+  }
+}
+
+
+
+public class Song{
+  public String name;
+  public String artist;
+  public int length;
+  public Song next;
+  
+  public Song(String n, String a, int l){
+    name = n;
+    artist = a;
+    length = l;
+  }
+  public void songInfo(){
+    System.out.println("Title: " + this.name + ", " + "Artist: " + this.artist);
+    System.out.println("Length: " + this.length + " minutes");
+  }
+}

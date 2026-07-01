@@ -1,0 +1,53 @@
+public class Student{
+  public int ID;
+  public double CGPA;
+  public boolean cg = false;
+  public String course [] = new String [4];
+  public int count;
+  
+  public void addCourse(String s){
+    if(count<4){
+    if(cg == false){
+      System.out.println("Failed to add " + s);
+      System.out.println("Set CG first");
+    }else{
+      if(CGPA>3.0){
+      course[count] = s;
+      count++;
+      }else{
+        if(count<3){
+          course[count]=s;
+          count++;
+        }else{
+          System.out.println("CG is low. Can't add more than 3 courses");
+        }
+      }
+    }
+    }else{
+      System.out.println("Failed to add " + s);
+      System.our.println("Maxium 4 courses allowed");
+    }
+  }
+  public void storeCG(double c){
+    CGPA = c;
+    cg = true;
+  }
+  public void showAdvisee(){
+    System.out.println("Student ID: " + ID + ", " + "CGPA : " + CGPA);
+    if(count>0){
+      System.out.println("Added courses are: ");
+      for(int i = 0; i<count; i++){
+        System.out.print(course[i] + " ");
+      }
+    }else{
+      System.out.println("No courses added");
+    }
+  }
+  public void removeAllCourse(){
+    count = 0;
+  }
+  }
+      
+      
+  
+  
