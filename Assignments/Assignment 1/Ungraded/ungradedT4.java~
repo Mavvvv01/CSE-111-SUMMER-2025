@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class ungradedT4{
+  Scanner sc = new Scanner(System.in);
+  public static void main(String[]args){
+    int [ ] [ ] A = {{4, 5, 7},
+                       {0, 3, -2},
+                       {4, 1, -4},
+                       {5, 10, 1}};
+    int k = sc.nextInt();
+    for(int i = 0;i<4; i++){
+      for(int j = 0;j<3;j++){
+        int product = 4*(A[i][j]);
+        A[i][j] = product;
+      }
+    }
+    for(int i = 0; i<4; i++){
+      for(int j = 0;j<3;j++){
+        System.out.print(A[i][j] + " ");
+      }
+      System.out.println();
+    }
+  }
+}

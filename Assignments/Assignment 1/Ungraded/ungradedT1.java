@@ -1,0 +1,50 @@
+import java.util.*;
+public class ungradedT1{
+  public static void main(String[]args){
+    Scanner sc = new Scanner(System.in);
+    System.out.print("N = ");
+    int N = sc.nextInt();
+    int[] oldArr = new int[N];
+    for(int i = 0; i<N; i++){
+      oldArr[i] = sc.nextInt();
+    }
+    System.out.print("Remove Element: ");
+    int remove = sc.nextInt();
+    int count = 0;
+    boolean found = false;
+    for(int i = 0;i<N; i++){
+      if(oldArr[i] == remove){
+        count++;
+        found = true;
+      }
+    }
+    System.out.println("Input array: ");
+    for(int i = 0;i<N; i++){
+      System.out.print(oldArr[i] + "  ");
+      System.out.println();
+    }
+    int newLength = N-count;
+    int[]newArr = new int[newLength];
+    if(found){
+      int index = 0;
+      for(int i = 0;i<N;i++){
+        if(oldArr[i] != remove){
+          newArr[index] = oldArr[i];
+          index++;
+        }
+      }
+          System.out.println("New Array: ");
+    for(int i =0; i<newLength; i++){
+      System.out.print(newArr[i] + " ");
+    }
+      
+    }else{
+      System.out.println("Element not found");
+    }
+  }
+}
+    
+    
+    
+    
+    
