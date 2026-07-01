@@ -1,0 +1,35 @@
+public class Parcel{
+  public String name;
+  public double weight;
+  public double fee;
+  
+  public Parcel(String s, double n){
+    name = s;
+    weight = n;
+  }
+  
+  public void printDetails(){
+    if(this.name = "null"){
+      System.out.println("Set name first");
+    }else{
+      System.out.println("Total Weight: " + weight);
+      System.out.println("Total Fee: " + fee);
+    }
+    public void calcFee(String s){
+      if(s.equals("Dhanmondi")){
+        if(weight ==0){
+          fee = 0;
+        }else{
+          fee = (weight*20)+50;
+        }
+      }else{
+        fee = (weight*20);
+      }
+    }
+    public void addWeight(double n){
+      weight+=n;
+    }
+  }
+}
+        
+  

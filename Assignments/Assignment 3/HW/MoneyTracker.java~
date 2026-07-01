@@ -1,0 +1,35 @@
+public class MoneyTracker{
+  public String name;
+  public double currentBalance;
+  public double lastAdd;
+  public double lastSpent;
+  
+  public String info(){
+    return("Name: " + name + "\n" + "Current Balance: " + currentBalance);
+  }
+  public createTracker(String s){
+    this.name = s;
+    currentBalance+=1.0;
+  }
+  public income(int n){
+    currentBalance+=n;
+    lastAdd = n;
+  }
+  public expense(int n){
+    if(currentBalance - n == 0){
+      currentBalance =0;
+      System.out.println("You're Broke");
+    }else if(currentBalance - n <0){
+      System.out.println("Not enough Balance");
+    }else{
+    currentBalance-=n;
+    lastSpent = n;
+  }
+  }
+  public showHistory(){
+    System.out.println("Last added: " + lastAdd);
+    System.out.println("Last spent: " + lastSpent);
+  }
+}
+    
+    

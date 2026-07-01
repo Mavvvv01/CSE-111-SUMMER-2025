@@ -1,0 +1,25 @@
+public class ChickenBurger{
+  String bun = "Sesame";
+  int price = 200;
+  String sauceOption = "less";
+  String spiceLevel = "Not set";
+  
+  public String serveBurger(){
+    if(spiceLevel.equals("Not set")){
+      return "This spice level is unavailable.";
+    }else{
+      return "The Burger is being served:- ";
+      return "Bun Type: " + bun;
+      return "Price: " + price;
+      return "Sauce Option: " + sauceOption;
+      return "Spice Level: " + spiceLevel;
+    }
+  }
+  public String customizeSpiceLevel(String s){
+    if(s.equals(Mild) || s.equals(Spicy) || s.equals(Naga) || s.equals(Extreme)){
+      spiceLevel = s;
+      System.out.println("SPice level set to " + spiceLevel);
+    }
+  }
+}
+      

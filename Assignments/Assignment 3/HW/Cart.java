@@ -1,0 +1,51 @@
+public class Cart{
+  public int number;
+  public int capacity = 3;
+  public String [] items = new String [3];
+  public double [] prices = new double [3];
+  public int count;
+  public double discount;
+  public double totalPrice;
+  
+  public void create_cart(int n){
+    number = n;
+  }
+  public void addItem(String s, double n){
+    if(count < capacity){
+      items[count] = s;
+      prices[count] = n;
+      count++;
+      totalPrice+=n;
+      System.out.println("You have " + count + " items in your cart now");
+      System.out.println(s + " added to cart " + this.number);
+    }else{
+      System.out.println("You already have 3 times on your cart");
+    }
+  }
+    public void addItem(double n, String s){
+    if(count < capacity){
+      items[count] = s;
+      prices[count] = n;
+      count++;
+      totalPrice+=n;
+      System.out.println("You have " + count + " items in your cart now");
+      System.out.println(s + " added to cart " + this.number);
+    }else{
+      System.out.println("You already have 3 times on your cart");
+    }
+    }
+    public void cartDetails(){
+      System.out.println("Your cart(c" + number + ")");
+      for(int i = 0; i<count; i++){
+        System.out.println(items[i] + " - " + prices[i]);
+      }
+      System.out.println("Discount applied : " + discount + "%");
+      System.out.println("Total Price: " + totalPrice);
+    }
+    public void giveDiscount(int n){
+      discount = n;
+      totalPrice = (totalPrice*(1-(discount/100)));
+    }
+}
+    
+      
