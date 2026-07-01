@@ -1,0 +1,35 @@
+public class Manager extends Employee{
+  public double bonus;
+  public Double finalSalary;
+  
+  public Manager(String s, int base, int wh, int bonus){
+    super(s, base, wh);
+    this.bonus = bonus;
+  }
+  public void requestIncrement(int n){
+    if(this.getHoursWorked() <=80){
+      System.out.println("Increment Denied");
+    }else if(this.getHoursWorked()>80 || this.getHoursWorked()<=100){
+      int temp = n/2;
+      this.setBaseSalary(this.getBaseSalary() + temp);
+      System.out.println("$" + temp + " Increment approved.");
+    }else{
+      this.setBaseSalary(this.getBaseSalary() + n);
+      System.out.println("$" + n + " Increment approved.");
+    }
+  }
+  public void calculateSalary(){
+    if(this.getHoursWorked()>40){
+      finalSalary = this.getBaseSalary() + ((bonus/100)*this.getBaseSalary());
+    }else{
+      finalSalary = this.getBaseSalary();
+    }
+  }
+  public void displayInfo(){
+    super.displayInfo();
+    System.out.println("Bonus: " + bonus+ " %");
+    System.out.println("Final Salary: " + "$" + finalSalary);
+  }
+}
+  
+    

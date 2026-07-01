@@ -1,0 +1,127 @@
+//Task1
+public class Manager extends Employee{
+  public double bonus;
+  public Double finalSalary;
+  
+  public Manager(String s, int base, int wh, int bonus){
+    super(s, base, wh);
+    this.bonus = bonus;
+  }
+  public void requestIncrement(int n){
+    if(this.getHoursWorked() <=80){
+      System.out.println("Increment Denied");
+    }else if(this.getHoursWorked()>80 || this.getHoursWorked()<=100){
+      int temp = n/2;
+      this.setBaseSalary(this.getBaseSalary() + temp);
+      System.out.println("$" + temp + " Increment approved.");
+    }else{
+      this.setBaseSalary(this.getBaseSalary() + n);
+      System.out.println("$" + n + " Increment approved.");
+    }
+  }
+  public void calculateSalary(){
+    if(this.getHoursWorked()>40){
+      finalSalary = this.getBaseSalary() + ((bonus/100)*this.getBaseSalary());
+    }else{
+      finalSalary = this.getBaseSalary();
+    }
+  }
+  public void displayInfo(){
+    super.displayInfo();
+    System.out.println("Bonus: " + bonus+ " %");
+    System.out.println("Final Salary: " + "$" + finalSalary);
+  }
+}
+
+public class Developer extends Employee{
+  public String lang;
+  public double finalSalary;
+  
+  public Developer(String s, int base, int wh, String ln){
+    super(s, base, wh);
+    lang = ln;
+  }
+  public void calculateSalary(){
+    if(lang.equals("Java")){
+      finalSalary = this.getBaseSalary() + 700.0;
+    }else{
+      finalSalary = this.getBaseSalary();
+    }
+  }
+  public void displayInfo(){
+    super.displayInfo();
+    System.out.println("Language: " + lang);
+    System.out.println("Final Salar: " + "$" +finalSalary);
+  }
+}
+
+
+//Task2
+public class KKTea extends Tea{
+  public int weight;
+  public int bags;
+  public static int regular;
+  public static int flavored;
+  public static int total;
+  
+  public KKTea(int p, int b){
+    super("KK Regular Tea", p);
+    bags = b;
+    weight = b*2;
+  }
+  public void productDetail(){
+    super.productDetail();
+    System.out.println("Weight: " + weight + ", " + "Tea Bags: " + bags);
+  }
+  public static void updateSoldStatusRegular(KKTea k){
+    k.status = true;
+    total++;
+    regular++;
+  }
+  public static void totalSales(){
+    System.out.println("Total Sales: " + total);
+    System.out.println("KK Regular Tea: " + regular);
+    if(flavored !=0){
+    System.out.println("KK Flavoured Tea: " + flavored);
+    }
+  }
+}
+
+public class KKFlavouredTea extends KKTea{
+  public boolean sold;
+  
+  public KKFlavouredTea(String s, int p, int b){
+    super(p, b);
+    weight = b*2;
+    name ="KK " + s + " Tea"; 
+  }
+  public static void updateSoldStatusFlavoured(KKFlavouredTea s){
+    s.sold = true;
+    flavored++;
+    total++;
+  }
+}
+
+
+//Task3
+public class CSEStudent extends Student{
+  public String msg = "I want to transfer to CSE";
+  
+  public String toString(){
+    return(msg);
+  }
+  public String shout(){
+    return msg;
+  }
+}
+
+public class CSE111Student extends Student{
+  public String msg = "I love Java Programming";
+  
+  public String toString(){
+    return msg;
+  }
+  public String shout(){
+    return msg;
+  }
+}

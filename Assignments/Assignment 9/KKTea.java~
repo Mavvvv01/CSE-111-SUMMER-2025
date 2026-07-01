@@ -1,0 +1,30 @@
+public class KKTea extends Tea{
+  public int weight;
+  public int bags;
+  public static int regular;
+  public static int flavored;
+  public static int total;
+  public boolean sold;
+  
+  public KKTea(int p, int b){
+    super("KK Regular Tea", b);
+    weight = b*2;
+    regular++;
+  }
+  public void productDetail(){
+    super.productDetail();
+    System.out.println("Weight: " + weight + ", " + "Tea Bags: " + bags);
+  }
+  public static void updateSoldStatusRegular(KKTea k){
+    k.sold = true;
+  }
+  public static void totalSales(){
+    System.out.println("Total Sales: " + total);
+    System.out.println("KK Regular Tea: " + regular);
+    System.out.println("KK Flavoured Tea: " + flavored);
+  }
+}
+  
+    
+  
+  

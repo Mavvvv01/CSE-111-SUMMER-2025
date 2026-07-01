@@ -1,0 +1,107 @@
+//Task1
+public class Dog extends Animal{
+    public String name;
+    
+    public Dog(){
+      System.out.println("The Dog says hello!");
+    }
+    
+    public void setName(String s){
+      name = s;
+    }
+    public String getName(){
+      return name;
+    }
+    public void updateSound(String s){
+      super.sound = s;
+    }
+}
+
+
+//Task2
+public class CheckingAccount extends Account{
+  public static int count;
+  
+  
+  public CheckingAccount(double n){
+    super(n);
+    count++;
+  }
+  public CheckingAccount(){
+    super(0.0);
+    count++;
+  }
+}
+
+//Task3
+public class Book extends Product{
+  public String isbn;
+  public String publisher;
+  
+  public Book(int n, String t, int p, String i, String pub){
+    super(n,t,p);
+    isbn = i;
+    publisher = pub;
+  }
+  
+  public String printDetail(){
+    return getIdTitlePrice() + " " + "ISBN: " + isbn + " Publisher: " + publisher;
+  }
+}
+
+public class CD extends Product{
+  public String band;
+  public int dur;
+  public String gen;
+  
+  public CD(int n, String t, int p, String b, int d, String g){
+    super(n, t, p);
+    band = b;
+    dur = d;
+    gen = g;
+  }
+  public String printDetail(){
+    return getIdTitlePrice() + " " + "Band: " + band + " Duration: " + dur + " minutes " + "Genre: " + gen;
+  }
+}
+
+//Task4
+public class CSEStudent extends Student{
+  public static int totalS;
+  public String course;
+  public static String totalC = "CSE110 CSE111 CSE220 CSE221";
+  
+  
+  public CSEStudent(String s, int n){
+    super(s, n);
+    totalS++;
+  }
+  public void addLabBasedCourse(String s){
+    if(s.equals("CSE230")){
+      System.out.println("It is not a lab based course!");
+    }else{
+      courses = courses + s + " ";
+    }
+  }
+  public static void details(){
+    System.out.println("Total CSE Students: " + totalS);
+    System.out.println("Available Lab Based Courses: ");
+    System.out.println(totalC);
+  }
+}
+    
+//Task5
+public class ComplexNumber extends RealNumber{
+  public double imagValue;
+  public ComplexNumber(){
+    super(1.0);
+    imagValue = 1.0;
+  }
+  public ComplexNumber(double r, double i){
+    super(r);
+    imagValue = i;
+  }
+  public String toString(){
+    return super.toString() + "\n" + "Imaginary Part: " + imagValue;
+  }
+}
